@@ -1,0 +1,20 @@
+sudo snap install lxd
+
+sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager
+
+sudo systemctl restart snap.lxd.daemon
+
+sudo journalctl -u snap.lxd.daemon -n 100
+
+lxc list
+
+ssh ubuntu@<vm-ip> // can use ssh to access vm
+
+lxc console vm_name // vm_name is your vm container name
+
+
+// can use command direct to ubuntu vm_name is your vm container name
+
+lxc exec vm_name -- apt update
+lxc exec vm_name -- apt install openssh-server
+
